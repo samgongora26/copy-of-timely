@@ -97,6 +97,21 @@ async function guardar_datos(e) {
 
     if (txt_name != "" && txt_email != "" && selected != "" && txt_costo != "" && txt_movie != ""){
         console.log(txt_name + " " + txt_email + " " + selected + " " + txt_costo + " " + txt_movie)
+
+        //Almacenando los datos en un JSON
+        var Datos_form = [];
+
+        var NuevoForm = {
+            nombre: txt_name,
+            email: txt_email,
+            paquete: selected,
+            precio : txt_costo,
+            pelicula : txt_movie
+        };
+    
+        console.log(NuevoForm); 
+        Datos_form.push(NuevoForm);
+
         /*const url = "../../inc/peticiones/admin/funciones.php";
         const datos = new FormData();
         datos.append("accion", "verifica_cuenta");
