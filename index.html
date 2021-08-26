@@ -68,46 +68,64 @@
 
     <div class="products">
         <h1 class="tittle_products">Consumiendo datos de una API con js</h1>
+        <h3 class="tittle_what-i-do">Llena el formulario, elige una pelicula junto con una comisión da a ok y te llegará un correo</h3>
 
-        <form class="form-mail">
-            <input class="text-input" type="text" placeholder="Email">
-            <input type="submit" value="Start my free trial" class="button-mail">
+        <form class="form-data">
+            <input class="form-input " type="text" placeholder="nombre">
+            <input class="form-input " type="text" placeholder="Email">
+            <br>
+            <input class="form-input " type="text" placeholder="nombre de pelicula">
+            <button class="form-input form-btn" type="text">Buscar pelicula</button>
+            <br>
+
+            <!--SECCION DE CONSUMO A API-->
+            <ul class="card-list">
+	
+                <li class="card">
+                    <a class="card-image">
+                        <img src="images/cover1.png"/>
+                    </a>
+                    <a class="card-description">
+                        <h2>Psychopomp</h2>
+                        <small>$100</small>
+                        <p>Japanese Breakfast</p>
+                        <br>
+                        <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
+                        <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
+                        
+                    </a>
+                </li>
+    
+                <li class="card">
+                    <a class="card-image">
+                        <img src="images/cover1.png"/>
+                    </a>
+                    <a class="card-description">
+                        <h2>Psychopomp</h2>
+                        <small>$100</small>
+                        <p>Japanese Breakfast</p>
+                        <br>
+                        <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
+                        <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
+                        
+                    </a>
+                </li>
+                
+                
+            </ul>
+            <!--CONTINUA EL FORMULARIO-->
+
+            <select class="form-input" type="text" placeholder="comision">
+                <option value="15">Paquete basico $15</option>
+                <option value="30">Paquete estandar $30</option>
+                <option value="45">Paquete ilimitado $45</option>
+            </select>
+            <input class="form-input " type="text" disabled placeholder="nombre de pelicula">
+            <br>
+            <button class="form-input form-btn" type="text">Generar recibo</button>
         </form>
 
-        <ul class="card-list">
-	
-            <li class="card">
-                <a class="card-image">
-                    <img src="images/cover1.png"/>
-                </a>
-                <a class="card-description">
-                    <h2>Psychopomp</h2>
-                    <small>$100</small>
-                    <p>Japanese Breakfast</p>
-                    <br>
-                    <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
-                    <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
-                    
-                </a>
-            </li>
-
-            <li class="card">
-                <a class="card-image">
-                    <img src="images/cover1.png"/>
-                </a>
-                <a class="card-description">
-                    <h2>Psychopomp</h2>
-                    <small>$100</small>
-                    <p>Japanese Breakfast</p>
-                    <br>
-                    <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
-                    <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
-                    
-                </a>
-            </li>
-            
-            
-        </ul>
+        
     </div>
 
 </body>

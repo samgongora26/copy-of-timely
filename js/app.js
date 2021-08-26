@@ -9,6 +9,8 @@ async function enviar_datos(url, datos) {
 }
 
 export async function existe_cuenta() {
+    var searchElement = 'https://www.omdbapi.com/?s='+req.query.movie+'&apikey=thewdb';
+    var movieDetails = [];
     const url = "../../inc/peticiones/admin/funciones.php";
     const datos = new FormData();
     datos.append("accion", "verifica_cuenta");

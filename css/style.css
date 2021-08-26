@@ -337,6 +337,13 @@ nav ul li a{
     .select{
         display: none;
     }
+
+    .form-input{
+        width: 300px;
+    }
+    .movie{
+        width: 300px;
+    }
 }
 
 
@@ -364,20 +371,27 @@ nav ul li a{
     color: #333;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    text-align: center;
 }
 
 .tittle_products{
-    margin-top: 50px;
-    
+    margin-top: 60px;
     font-size: 40px;
     text-align: center;
 }
 
+.tittle-what-i-do{
+    margin-top: 50px;
+    
+    font-size: 40px;
+    text-align: center;
+
+}
+
 /*Estilos de las cartas de productos*/
-/* Lazy Load Styles */
 .card-image {
 	display: block;
-	min-height: 20rem; /* layout hack */
+	min-height: 20rem; 
 	background: #fff center center no-repeat;
 	background-size: cover;
 }
@@ -438,4 +452,32 @@ nav ul li a{
     border-radius: 10px;
     border: none;
     
+}
+
+/*Estilos para la prueba 3 */
+
+.form-input{
+    border: 1px solid rgba(56,49,68,.1);
+    border-radius: .8em;
+    background-color: #fff;
+    box-shadow: 1px 1px 0.5em 0 rgb(56 49 68 / 10%);
+    
+    width: 300px;
+    height: 50px;
+    padding: 8px 12px;
+    margin: 10px;
+    font-size: 10px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.form-data{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.form-btn{
+    background-color: #0ef0b8;
+    cursor: pointer;
 }
