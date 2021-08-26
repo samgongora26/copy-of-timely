@@ -14,24 +14,30 @@ paquete.addEventListener("change" ,calcular_precio);
 btn_search_movie.addEventListener("click", busca_peliculas);
 form_data.addEventListener("submit", guardar_datos);
 
-async function enviar_datos(url) {
+async function peticion_api(url) {
     try {
       const res = await fetch(url, { method: "POST", body: "" });
       const data = await res.json();
       return data;
     } catch (error) {
-      //console.log(error);
     }
 }
+
+async function enviar_datos(url, datos) {
+    try {
+      const res = await fetch(url, { method: "POST", body: datos });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+    }
+  }
 
 async function busca_peliculas(e) {
     e.preventDefault();
     movies_list.innerHTML="";
     let movies = movie_txt.value;
-    console.log("pelicula " + movies);
     const url = 'https://www.omdbapi.com/?s='+movies+'&apikey=thewdb';
-    const res = await enviar_datos(url);
-    console.log(res);
+    const res = await peticion_api(url);
     res.length != 0 ? llenado_contenedor_html(res) : alert("no se ha encontrado tu pelicula :("); 
 }
 
@@ -57,10 +63,8 @@ async function llenado_contenedor_html(res){
 
 async function busca_pelicula(movie) {
     movies_list.innerHTML="";
-    console.log("pelicula" + movie);
     const url = 'https://www.omdbapi.com/?t='+movie+'&apikey=thewdb';
-    const res = await enviar_datos(url);
-    console.log(res);
+    const res = await peticion_api(url);
     res.length != 0 ? llenado_contenedor_html_especifico(res) : alert("no se ha encontrado tu pelicula :("); 
 }
 
@@ -96,7 +100,6 @@ async function guardar_datos(e) {
     var selected = paquete.options[paquete.selectedIndex].text;
 
     if (txt_name != "" && txt_email != "" && selected != "" && txt_costo != "" && txt_movie != ""){
-        console.log(txt_name + " " + txt_email + " " + selected + " " + txt_costo + " " + txt_movie)
 
         //Almacenando los datos en un JSON
         var Datos_form = [];
@@ -108,32 +111,29 @@ async function guardar_datos(e) {
             precio : txt_costo,
             pelicula : txt_movie
         };
-    
+        console.log("Json creado:")
         console.log(NuevoForm); 
         Datos_form.push(NuevoForm);
 
-        /*const url = "../../inc/peticiones/admin/funciones.php";
+        //ENVIANDO LOS DATOS AL BACKEND PARA GENERAR EL CORREO
+
+        const url_1 = "php/enviar_correo.php";
         const datos = new FormData();
-        datos.append("accion", "verifica_cuenta");
+        datos.append("nombre", txt_name);
+        datos.append("email", txt_email);
+        datos.append("paquete", selected);
+        datos.append("precio", txt_costo);
+        datos.append("pelicula", txt_movie);
     
-        const res = await enviar_datos(url, datos);
-        //console.log(res);
-        */
+        let del_back = await enviar_datos(url_1, datos);
+        console.log("Respuesta del backend al validar los datos");
+        console.log(del_back);
+        
     }
     else{
         alert("Verifica que hayas llenado el formulario");
     }
-
-    /*
-    const url = "../../inc/peticiones/admin/funciones.php";
-    const datos = new FormData();
-    datos.append("accion", "verifica_cuenta");
-  
-    const res = await enviar_datos(url, datos);
-    //console.log(res);
-    const cuenta = res.cuenta_existente;
-    return cuenta;
-    */
+    
 }
 
 function calcular_precio(){
@@ -141,7 +141,6 @@ function calcular_precio(){
     const costo_inicial = 100;
     var precio = 0;
     var precio = costo_inicial + parseInt(paquete.value);
-        console.log(precio);
         cost.value = "$" + precio; 
 }
 
