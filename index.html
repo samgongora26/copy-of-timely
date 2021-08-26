@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Test 1</title>
 </head>
 <body>
@@ -67,6 +68,12 @@
 
     <div class="products">
         <h1 class="tittle_products">Consumiendo datos de una API con js</h1>
+
+        <form class="form-mail">
+            <input class="text-input" type="text" placeholder="Email">
+            <input type="submit" value="Start my free trial" class="button-mail">
+        </form>
+
         <ul class="card-list">
 	
             <li class="card">
@@ -75,7 +82,12 @@
                 </a>
                 <a class="card-description">
                     <h2>Psychopomp</h2>
+                    <small>$100</small>
                     <p>Japanese Breakfast</p>
+                    <br>
+                    <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
+                    <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
+                    
                 </a>
             </li>
 
@@ -85,7 +97,12 @@
                 </a>
                 <a class="card-description">
                     <h2>Psychopomp</h2>
+                    <small>$100</small>
                     <p>Japanese Breakfast</p>
+                    <br>
+                    <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
+                    <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
+                    
                 </a>
             </li>
             
@@ -95,4 +112,5 @@
 
 </body>
 <script src="js/script.js"></script>
+<script src="js/app.js"></script>
 </html>
