@@ -68,52 +68,19 @@
 
     <div class="products">
         <h1 class="tittle_products">Consumiendo datos de una API con js</h1>
-        <h3 class="tittle_what-i-do">Llena el formulario, elige una pelicula junto con una comisión da a ok y te llegará un correo</h3>
+        <h3 class="tittle_what-i-do">Llena el formulario, elige una pelicula junto con una comisión da a generar notificación y te llegará un correo</h3>
 
         <form class="form-data" id="form_movie">
             <input class="form-input " id="name" type="text" placeholder="nombre">
             <input class="form-input " id="email" type="text" placeholder="Email">
             <br>
-            <form id="form_movie_search">
-                <input class="form-input " id="movie" type="text" placeholder="nombre de pelicula">
-                <button class="form-input  form-btn" type="text">Buscar pelicula</button>
-            </form>
-            
+            <input class="form-input " id="movie" type="text" placeholder="nombre de pelicula">
+            <button class="form-input form-btn" id="btn_search_movie"type="text">Buscar pelicula</button>
             <br>
 
             <!--SECCION DE CONSUMO A API-->
-            <ul class="card-list">
-	
-                <li class="card">
-                    <a class="card-image">
-                        <img src="images/cover1.png"/>
-                    </a>
-                    <a class="card-description">
-                        <h2>Psychopomp</h2>
-                        <small>$100</small>
-                        <p>Japanese Breakfast</p>
-                        <br>
-                        <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
-                        <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
-                        
-                    </a>
-                </li>
-    
-                <li class="card">
-                    <a class="card-image">
-                        <img src="images/cover1.png"/>
-                    </a>
-                    <a class="card-description">
-                        <h2>Psychopomp</h2>
-                        <small>$100</small>
-                        <p>Japanese Breakfast</p>
-                        <br>
-                        <button class="buy-later"> Al carrito<i class="fa fa-shopping-cart"></i></button>
-                        <button class="buy-now">Comprar ahora <i class="fa fa-check"></i></button>
-                        
-                    </a>
-                </li>
-                
+            <ul class="card-list"  id="movies_list">
+	            
                 
             </ul>
             <!--CONTINUA EL FORMULARIO-->
