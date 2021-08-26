@@ -1,8 +1,18 @@
 //variables del dom
 const btn_search_movie = document.querySelector("#btn_search_movie");
 const movies_list = document.querySelector("#movies_list");
-btn_search_movie.addEventListener("click", busca_peliculas);
 const movie_txt = document.querySelector('#movie');
+const form_data = document.querySelector('#form_movie');
+
+const names = document.querySelector("#name");
+const email = document.querySelector("#email");
+const paquete = document.querySelector("#paquete");
+const cost = document.querySelector("#cost");
+
+//Event listener
+paquete.addEventListener("change" ,calcular_precio);
+btn_search_movie.addEventListener("click", busca_peliculas);
+form_data.addEventListener("submit", guardar_datos);
 
 async function enviar_datos(url) {
     try {
@@ -55,6 +65,7 @@ async function busca_pelicula(movie) {
 }
 
 async function llenado_contenedor_html_especifico(res){
+    movie_txt.value = res.Title;
     movies_list.innerHTML += `
             <li class="card">
                 <a class="card-image">
@@ -75,9 +86,30 @@ async function llenado_contenedor_html_especifico(res){
                     `;
 }
 
-async function guardar_datos() {
-    var searchElement = 'https://www.omdbapi.com/?s='+req.query.movie+'&apikey=thewdb';
-    var movieDetails = [];
+async function guardar_datos(e) {
+    e.preventDefault();
+    let txt_name = names.value;
+    let txt_email = email.value;
+    let txt_costo = cost.value;
+    let txt_movie = movie_txt.value;
+
+    var selected = paquete.options[paquete.selectedIndex].text;
+
+    if (txt_name != "" && txt_email != "" && selected != "" && txt_costo != "" && txt_movie != ""){
+        console.log(txt_name + " " + txt_email + " " + selected + " " + txt_costo + " " + txt_movie)
+        /*const url = "../../inc/peticiones/admin/funciones.php";
+        const datos = new FormData();
+        datos.append("accion", "verifica_cuenta");
+    
+        const res = await enviar_datos(url, datos);
+        //console.log(res);
+        */
+    }
+    else{
+        alert("Verifica que hayas llenado el formulario");
+    }
+
+    /*
     const url = "../../inc/peticiones/admin/funciones.php";
     const datos = new FormData();
     datos.append("accion", "verifica_cuenta");
@@ -86,5 +118,15 @@ async function guardar_datos() {
     //console.log(res);
     const cuenta = res.cuenta_existente;
     return cuenta;
+    */
+}
+
+function calcular_precio(){
+    //costo inicial
+    const costo_inicial = 100;
+    var precio = 0;
+    var precio = costo_inicial + parseInt(paquete.value);
+        console.log(precio);
+        cost.value = "$" + precio; 
 }
 
