@@ -1,4 +1,6 @@
 <?php 
+$from = "eamail_de_prueba@email.com";
+$headers = "From:" . $from;
 //Validacion del formulario
 function validaRequerido($valor){
     //Aqui validamos valores que son totalmente requeridos
@@ -53,9 +55,12 @@ function crear_mail():array{
 
             //Preparando el correo.
             $contenido = "¡Hola ". $nombre . "!" ."\n Se ha registrado la pelicula: ".$pelicula;
+            $subject = "Registro de una pelicula";
             //Esta manera es en la que se puede enviar un correo por el servidor.
             //Es necesario contar con un servidor para poder usarlo
-            //ds mail($email, $contenido);
+            //Al estar en un servidor hay que cambiar la linea 2 de este codigo con el correo del host
+            //seguidamente hay que descomentar la siguiente linea (linea 63)
+            //mail($email, $subject, $contenido,$headers);
         }
         
     } catch (\Throwable $th) {
